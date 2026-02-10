@@ -36,3 +36,27 @@ This project demonstrates core FIFO concepts used in real RTL designs such as **
 - Lower bits → memory index
 - MSB → wrap detection
 - Prevents ambiguity between full and empty conditions
+
+
+### RTL Linting and Compilation
+
+The Register Transfer Level (RTL) design was written in SystemVerilog and first verified for language correctness and coding quality.  
+The following tools were used:
+
+- **Slang** was used for SystemVerilog parsing, compilation, and RTL linting. It was primarily used to detect syntax errors, unresolved references, and potential RTL coding issues early in the design process.
+- **Verilator** was used as an additional linting and sanity-check tool. Verilator was applied to both RTL and gate-level netlists to ensure structural correctness, proper module connectivity, and compatibility with synthesizable SystemVerilog constructs.
+
+Using both Slang and Verilator helped ensure that the design was clean, well-formed, and suitable for synthesis.
+
+---
+
+### RTL Synthesis and Technology Mapping
+
+After successful linting and verification, the RTL design was synthesized using **Yosys**.  
+Yosys was used to perform logic synthesis, optimization, and technology mapping.
+
+The synthesized design was mapped to a standard-cell library targeting a 45 nm technology node using the following library:
+
+- **Standard Cell Library:** `nandgate45_fast.lib`
+
+This step converts the high-level RTL description into a gate-level netlist composed of standard logic cells from the target technology library.
