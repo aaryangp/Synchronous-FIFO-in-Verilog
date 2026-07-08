@@ -1,0 +1,91 @@
+OpenROAD 26Q3-79-gf4e5e40f47 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0227] LEF file: /home/aari/skywater-pdk-libs-sky130_fd_sc_hd/tech/sky130_fd_sc_hd__nom.tlef, created 14 layers, 25 vias
+[INFO ODB-0227] LEF file: /home/aari/OpenROAD-flow-scripts/flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+[INFO ODB-0127] Reading DEF file: synch_fifo_layout.def
+[INFO ODB-0128] Design: synch_fifo_bram
+[INFO ODB-0130]     Created 22 pins.
+[INFO ODB-0131]     Created 1510 components and 6942 component-terminals.
+[INFO ODB-0133]     Created 248 nets and 902 connections.
+[INFO ODB-0134] Finished DEF file: synch_fifo_layout.def
+
+========================================================
+                CRITICAL PATH REPORT (SETUP)            
+========================================================
+[WARNING STA-0168] unknown field delay.
+Startpoint: _323_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: empty (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+                     0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (propagated)
+            0.000    0.000    0.000 ^ _323_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.020    0.116    0.418    0.418 v _323_/Q (sky130_fd_sc_hd__dfrtp_1)
+            0.116    0.000    0.418 v _156_/B (sky130_fd_sc_hd__xor2_1)
+   0.008    0.098    0.188    0.606 v _156_/X (sky130_fd_sc_hd__xor2_1)
+            0.098    0.000    0.606 v _158_/B (sky130_fd_sc_hd__or3_1)
+   0.007    0.090    0.388    0.994 v _158_/X (sky130_fd_sc_hd__or3_1)
+            0.090    0.000    0.994 v _192_/A (sky130_fd_sc_hd__nor2_1)
+   0.050    0.865    0.688    1.682 ^ _192_/Y (sky130_fd_sc_hd__nor2_1)
+            0.865    0.000    1.682 ^ empty (out)
+                              1.682   data arrival time
+
+                    10.000   10.000   clock clk (rise edge)
+                     0.000   10.000   clock network delay (propagated)
+                    -0.200    9.800   clock uncertainty
+                     0.000    9.800   clock reconvergence pessimism
+                    -2.000    7.800   output external delay
+                              7.800   data required time
+---------------------------------------------------------------------------
+                              7.800   data required time
+                             -1.682   data arrival time
+---------------------------------------------------------------------------
+                              6.118   slack (MET)
+
+
+
+========================================================
+                CRITICAL PATH REPORT (HOLD)             
+========================================================
+[WARNING STA-0168] unknown field delay.
+Startpoint: _351_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _351_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+     Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------
+                     0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (propagated)
+            0.000    0.000    0.000 ^ _351_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.004    0.053    0.292    0.292 ^ _351_/Q (sky130_fd_sc_hd__dfxtp_1)
+            0.053    0.000    0.292 ^ _254_/A0 (sky130_fd_sc_hd__mux2_1)
+   0.002    0.034    0.108    0.400 ^ _254_/X (sky130_fd_sc_hd__mux2_1)
+            0.034    0.000    0.400 ^ _351_/D (sky130_fd_sc_hd__dfxtp_1)
+                              0.400   data arrival time
+
+                     0.000    0.000   clock clk (rise edge)
+                     0.000    0.000   clock network delay (propagated)
+                     0.050    0.050   clock uncertainty
+                     0.000    0.050   clock reconvergence pessimism
+                              0.050 ^ _351_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                    -0.035    0.015   library hold time
+                              0.015   data required time
+---------------------------------------------------------------------------
+                              0.015   data required time
+                             -0.400   data arrival time
+---------------------------------------------------------------------------
+                              0.385   slack (MET)
+
+
+
+========================================================
+                SUMMARY TIMING METRICS                  
+========================================================
+wns max 0.00
+tns max 0.00
